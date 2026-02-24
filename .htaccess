@@ -1,0 +1,7 @@
+# Activer le moteur de réécriture d'URL
+RewriteEngine On
+
+# Vérifier si la connexion n'est pas en HTTPS
+RewriteCond %{HTTPS} off
+# Rediriger vers la version HTTPS en conservant le chemin et les paramètres
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
